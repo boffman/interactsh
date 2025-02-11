@@ -137,7 +137,6 @@ func (h *HTTPServer) logger(handler http.Handler) http.HandlerFunc {
 			for _, domain := range h.options.Domains {
 				if h.options.RootTLD && stringsutil.HasSuffixI(r.Host, domain) {
 					ID := domain
-					host, _, _ := net.SplitHostPort(r.RemoteAddr)
 					interaction := &Interaction{
 						Protocol:      "http",
 						UniqueID:      r.Host,
